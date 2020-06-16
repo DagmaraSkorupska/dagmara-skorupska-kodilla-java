@@ -22,7 +22,7 @@ public class CollectionTestSuite {
         //Given
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
         //When
-        ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(emptyList);
+        ArrayList<Integer> listNumbers =new OddNumbersExterminator().exterminate(emptyList);
         System.out.println("Testing " + listNumbers);
         //Then
         Assert.assertEquals(emptyList,listNumbers);
@@ -35,7 +35,7 @@ public class CollectionTestSuite {
         ArrayList<Integer> oddList = new ArrayList<Integer>();
 
         //When
-        ArrayList<Integer> listNumbers = OddNumbersExterminator.exterminate(normalList);
+        ArrayList<Integer> listNumbers =new OddNumbersExterminator().exterminate(normalList);
         System.out.println("Testing " + listNumbers);
         //Then
         Assert.assertEquals(oddList, listNumbers);
