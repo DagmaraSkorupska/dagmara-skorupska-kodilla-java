@@ -28,13 +28,7 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
 
-        //task 7.1
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("zło", text -> "zło" + "ABC" );
-        poemBeautifier.beautify("zło", text -> "ABC" + "zło" );
-        poemBeautifier.beautify("zło", text -> text.toUpperCase());
-        poemBeautifier.beautify("zło", text -> text.substring(1, 3));
-        poemBeautifier.beautify("zło", text -> text.replace("z","Z"));
+
 
     }
 }
