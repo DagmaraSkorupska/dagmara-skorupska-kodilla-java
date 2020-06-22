@@ -26,19 +26,8 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-        List<Book> bookListInHands = libraryDatabase.listBooksInHandsOf(libraryUser);
+         return libraryDatabase.listBooksInHandsOf(libraryUser);
 
-        if(bookListInHands.size() == 0) {
-            System.out.println("Użytkownik ma wypozyczonych " + bookListInHands.size() + " ksiazek");
-        }
-
-        if(bookListInHands.size() == 1)
-            return bookListInHands;
-
-        if(bookListInHands.size() == 5)
-            return bookListInHands;
-
-        return bookListInHands;
     }
 
 }
