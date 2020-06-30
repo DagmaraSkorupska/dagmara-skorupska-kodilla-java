@@ -158,8 +158,6 @@ public class BoardTestSuite {
         sumOfDaysForTaskInProgress = project.getTaskLists().stream()
                 .filter(tl ->tl.getName().equals("In progress"))
                 .flatMap((t->t.getTasks().stream()))
-                //.map(Task::getCreated)
-                //.map(d -> LocalDate.now().getDayOfYear() - d.getDayOfYear())
                 .map(d-> Period.between(d.getCreated(), LocalDate.now()).getDays())
                 .reduce(sumOfDaysForTaskInProgress, (sum, current) -> sum = sum + current);
         System.out.println(sumOfDaysForTaskInProgress);
