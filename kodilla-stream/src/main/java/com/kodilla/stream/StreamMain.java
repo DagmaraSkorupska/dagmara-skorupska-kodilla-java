@@ -16,7 +16,8 @@ public class StreamMain {
         LocalDate dateNow = LocalDate.now();
         Map<Integer, ForumUser> thePair = theForum.getList().stream()
                 .filter(user -> user.getSex() == 'M')
-                .filter(user -> (dateNow.getYear() - user.getBirthDate().getYear()) >=21)
+                //.filter(user -> (dateNow.getYear() - user.getBirthDate().getYear()) >=21)
+                .filter(user -> Period.between(user.getBirthDate(), LocalDate.now()).getYears() > 19)
                 .filter(user -> user.getNumberOfPost() >= 1)
                 .collect(Collectors.toMap(ForumUser::getIdUser, user -> user));
 
