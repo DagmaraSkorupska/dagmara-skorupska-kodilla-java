@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.stream.Stream;
 
-public class FileReader {
-    public void readFile(){
+public class FileReader  {
+    public void readFile() throws FileReaderException {
         ClassLoader classLoader = getClass().getClassLoader();
         File file = new File(classLoader.getResource("file/names.txt").getFile());
 
@@ -16,7 +16,7 @@ public class FileReader {
 
         } catch (IOException e) {
 
-            System.out.println("Oh no! Something went wrong! Error: " + e);
+            throw new FileReaderException();
 
         } finally {
             System.out.println("I'm gonna be here..always!");
