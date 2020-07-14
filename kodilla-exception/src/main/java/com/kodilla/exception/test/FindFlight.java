@@ -12,7 +12,7 @@ public class FindFlight {
         airport.put("London", false);
         airport.put("Poznan", false);
 
-        if(airport.get(flight.getArrivalAirport())){
+        if(airport.containsKey(flight.getArrivalAirport()) && airport.get(flight.getArrivalAirport())){
             System.out.println("From this airport travel to: " + flight.getArrivalAirport());
         } else {
             throw new RouteNotFoundException("Arrival airport doesn't exist");
