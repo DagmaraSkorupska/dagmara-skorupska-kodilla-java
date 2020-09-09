@@ -2,20 +2,16 @@ package com.kodilla.good.patterns.challenges.food2door;
 
 public class SaleDTo {
 
-    private final Provider provider;
-    private final boolean isProcessed;
+    public FoodOrder foodOrder;
+    public boolean isOrdered;
 
-    public SaleDTo(final Provider provider, final boolean isProcessed) {
-        this.provider = provider;
-        this.isProcessed = isProcessed;
+    public SaleDTo(FoodOrder foodOrder, boolean isOrdered) {
+        this.foodOrder = foodOrder;
+        this.isOrdered = isOrdered;
     }
 
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public boolean isProcessed() {
-        return isProcessed;
+    public FoodOrder getFoodOrder() {
+        return foodOrder;
     }
 }
 
