@@ -12,7 +12,7 @@ public class OrderProcessor {
         this.orderService = orderService;
     }
 
-    public void saleDTo(final FoodOrder foodOrder) {
+    public void process(final FoodOrder foodOrder) {
 
         boolean isOrdered= orderService.order(foodOrder.getProvider(), foodOrder.getProduct(), foodOrder.getQuantity());
 
