@@ -3,6 +3,7 @@ package com.kodilla.good.patterns.challenges.flight_plan;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FlightSearch {
 
@@ -22,7 +23,7 @@ public class FlightSearch {
     }
 
 
-    public void flightToCityWithTransfer(String departureAirport, String transferAirport,  String arrivalAirport){
+    public List<Flight> flightToCityWithTransfer(String departureAirport, String transferAirport,  String arrivalAirport){
 
         List<Flight> departureTransfer = airports.stream()
                 .filter(d -> d.getDepartureAirport().equals(departureAirport))
@@ -34,8 +35,9 @@ public class FlightSearch {
                 .filter(a -> a.getArrivalAirport().equals(arrivalAirport))
                 .collect(Collectors.toList());
 
-        System.out.println(departureTransfer);
-        System.out.println(transferArrival);
+        return Stream.concat(departureTransfer.stream(), transferArrival.stream())
+                .collect(Collectors.toList());
+
     }
 
 
