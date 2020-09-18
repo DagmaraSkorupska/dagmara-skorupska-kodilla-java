@@ -13,8 +13,9 @@ public class OrderProcessor {
     }
 
     public void process(final FoodOrder foodOrder) {
-
+        orderService.informProvider(foodOrder.getProvider(), foodOrder);
         boolean isOrdered= orderService.order(foodOrder.getProvider(), foodOrder.getProduct(), foodOrder.getQuantity());
+
 
         if (isOrdered) {
             informationService.inform(foodOrder.getProvider(), foodOrder);

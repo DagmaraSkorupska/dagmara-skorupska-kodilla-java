@@ -26,7 +26,7 @@ public class HealthyShop implements Provider {
         double bonusPrice = foodOrder.getQuantity() * getBonusPrice();
 
         if(foodOrder.getQuantity() > 15){
-            System.out.println("Bonusowa cena zamówienia: " + bonusPrice + " zł");
+            System.out.println("Bonus cenowy: " + bonusPrice + " zł");
             System.out.println("Cena zamówinia z bonusem: " + (standardPrice - bonusPrice) + " zł");
         } else {
             System.out.println("Cena zamówienia: " + standardPrice + " zł");
