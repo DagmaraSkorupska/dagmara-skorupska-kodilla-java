@@ -6,18 +6,26 @@ public class Application {
     public static void main(String[] args){
 
         FlightSearch flightSearch = new FlightSearch();
-        flightSearch.add(new Airport("Warszawa", "Gdańsk", "Dublin"));
-        flightSearch.add(new Airport("Warszawa", "Berlin", "Dublin"));
-        flightSearch.add(new Airport("Wrocław", "Gdańsk", "Warszawa"));
-        flightSearch.add(new Airport("Gdańsk", "Warszawa", "Kraków"));
-        flightSearch.add(new Airport("Z", "X", "B"));
+        flightSearch.add(new Flight("Wrocław", "Warszawa"));
+        flightSearch.add(new Flight("Wrocław", "Kraków"));
+        flightSearch.add(new Flight("Kraków", "Warszawa"));
+        flightSearch.add(new Flight("Warszawa", "Gdańsk"));
+        flightSearch.add(new Flight("Gniezno", "Kraków"));
+        flightSearch.add(new Flight("Gdańsk", "Kraków"));
+        flightSearch.add(new Flight("Kraków", "Gdynia"));
+        flightSearch.add(new Flight("Warszawa", "Żory"));
+        flightSearch.add(new Flight("Warszawa", "Malbork"));
 
-        System.out.println("Flights by selected departure airport: Warszawa");
-        System.out.println(flightSearch.searchForFlightsFromAGivenCity("Warszawa"));
-        System.out.println("Flights by selected arrival airport: Kraków");
-        System.out.println(flightSearch.searchForFlightsToAGivenCity("Kraków"));
-        System.out.println("Transfer in the city: Gdańsk");
-        System.out.println(flightSearch.searchForFlightsWithinAGivenCity("Gdańsk"));
+
+        System.out.println("Flights by selected departure airport: Wrocław");
+        System.out.println(flightSearch.searchForFlightsFromAGivenCity("Wrocław"));
+        System.out.println("Flights by selected arrival airport: Warszawa");
+        System.out.println(flightSearch.searchForFlightsToAGivenCity("Warszawa"));
+
+        System.out.println("Flights by Wrocław - Warszawa - Gdańsk");
+        System.out.println(flightSearch.flightToCityByCity1("Wrocław", "Warszawa") + " przesiadka " + flightSearch.flightToCityByCity1("Warszawa", "Gdańsk") );
+
+
 
     }
 
