@@ -26,8 +26,8 @@ public class Application {
         System.out.println();
 
         System.out.println("Flights by Wrocław - Warszawa - Gdańsk");
-        System.out.println(flightSearch.flightToCityByCity2("Wrocław", "Warszawa", "Gdańsk"));
-        System.out.println(flightSearch.flightToCityByCity3("Wrocław", "Warszawa", "Gdańsk"));
+        flightSearch.flightToCityWithTransfer("Wrocław", "Warszawa", "Gdańsk");
+
 
 
     }

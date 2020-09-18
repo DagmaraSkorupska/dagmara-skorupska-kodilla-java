@@ -22,27 +22,26 @@ public class FlightSearch {
     }
 
 
-    public List<Flight> flightToCityByCity2(String departureAirport, String transferAirport,  String arrivalAirport){
+    public void flightToCityWithTransfer(String departureAirport, String transferAirport,  String arrivalAirport){
 
-
-        return airports.stream()
+        List<Flight> departureTransfer = airports.stream()
                 .filter(d -> d.getDepartureAirport().equals(departureAirport))
                 .filter(a -> a.getArrivalAirport().equals(transferAirport))
                 .collect(Collectors.toList());
-    }
 
-
-    public List<Flight> flightToCityByCity3(String departureAirport, String transferAirport,  String arrivalAirport){
-
-        return airports.stream()
+        List<Flight> transferArrival = airports.stream()
                 .filter(d -> d.getDepartureAirport().equals(transferAirport))
                 .filter(a -> a.getArrivalAirport().equals(arrivalAirport))
                 .collect(Collectors.toList());
-    }
 
+        System.out.println(departureTransfer);
+        System.out.println(transferArrival);
+    }
 
 
     public void add(Flight flight) {
         airports.add(flight);
     }
 }
+
+
