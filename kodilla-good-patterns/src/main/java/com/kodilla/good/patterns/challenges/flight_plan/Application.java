@@ -15,6 +15,7 @@ public class Application {
         flightSearch.add(new Flight("Kraków", "Gdynia"));
         flightSearch.add(new Flight("Warszawa", "Żory"));
         flightSearch.add(new Flight("Warszawa", "Malbork"));
+        flightSearch.add(new Flight("Wrocław", "Moskwa"));
 
 
         System.out.println("Flights by selected departure airport: Wrocław");
@@ -22,9 +23,11 @@ public class Application {
         System.out.println("Flights by selected arrival airport: Warszawa");
         System.out.println(flightSearch.searchForFlightsToAGivenCity("Warszawa"));
 
-        System.out.println("Flights by Wrocław - Warszawa - Gdańsk");
-        System.out.println(flightSearch.flightToCityByCity1("Wrocław", "Warszawa") + " przesiadka " + flightSearch.flightToCityByCity1("Warszawa", "Gdańsk") );
+        System.out.println();
 
+        System.out.println("Flights by Wrocław - Warszawa - Gdańsk");
+        System.out.println(flightSearch.flightToCityByCity2("Wrocław", "Warszawa", "Gdańsk"));
+        System.out.println(flightSearch.flightToCityByCity3("Wrocław", "Warszawa", "Gdańsk"));
 
 
     }

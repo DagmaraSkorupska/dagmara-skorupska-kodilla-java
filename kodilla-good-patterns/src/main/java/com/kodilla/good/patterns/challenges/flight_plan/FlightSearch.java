@@ -21,16 +21,24 @@ public class FlightSearch {
                 .collect(Collectors.toList());
     }
 
-    public List<Flight> flightToCityByCity1(String departureAirport, String arrivalAirport){
+
+    public List<Flight> flightToCityByCity2(String departureAirport, String transferAirport,  String arrivalAirport){
+
+
         return airports.stream()
                 .filter(d -> d.getDepartureAirport().equals(departureAirport))
-                .filter(a -> a.getArrivalAirport().equals(arrivalAirport))
+                .filter(a -> a.getArrivalAirport().equals(transferAirport))
                 .collect(Collectors.toList());
     }
 
 
+    public List<Flight> flightToCityByCity3(String departureAirport, String transferAirport,  String arrivalAirport){
 
-
+        return airports.stream()
+                .filter(d -> d.getDepartureAirport().equals(transferAirport))
+                .filter(a -> a.getArrivalAirport().equals(arrivalAirport))
+                .collect(Collectors.toList());
+    }
 
 
 
