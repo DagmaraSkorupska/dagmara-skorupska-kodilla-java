@@ -47,7 +47,6 @@ public class Invoice {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-
     public List<Item> getItems() {
         return items;
     }
