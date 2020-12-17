@@ -11,6 +11,12 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedNativeQuery(
+        name = "Company.searchByPartOfName",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE '%DAT%'",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

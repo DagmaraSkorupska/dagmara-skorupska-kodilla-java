@@ -11,6 +11,11 @@ import java.util.List;
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 
+@NamedNativeQuery(
+        name = "Employee.searchByPartOfName",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE '%CLAR%'",
+        resultClass = Employee.class
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
