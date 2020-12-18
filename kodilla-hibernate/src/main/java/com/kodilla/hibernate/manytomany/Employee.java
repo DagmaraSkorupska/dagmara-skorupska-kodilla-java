@@ -13,7 +13,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Employee.searchByPartOfName",
-        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE '%CLAR%'",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE :variable",
         resultClass = Employee.class
 )
 

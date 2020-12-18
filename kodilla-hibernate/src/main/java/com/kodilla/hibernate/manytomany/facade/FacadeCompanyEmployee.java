@@ -27,7 +27,7 @@ public class FacadeCompanyEmployee {
         List<String> foundResults = new ArrayList<>();
         LOGGER.info("Starting method: search by Part of Name");
         try {
-            List<Company> companyFoundByPartName = company.searchByPartOfName();
+            List<Company> companyFoundByPartName = company.searchByPartOfName("%Da%");
             if (companyFoundByPartName.size() > 0) {
                 LOGGER.info("Found companies: ");
                 for (Company tempCompany : companyFoundByPartName) {
@@ -39,7 +39,7 @@ public class FacadeCompanyEmployee {
                 LOGGER.info("Found none companies");
             }
 
-            List<Employee> employeeFoundByPartName = employee.searchByPartOfName();
+            List<Employee> employeeFoundByPartName = employee.searchByPartOfName("%Cl%");
             if (employeeFoundByPartName.size() > 0) {
                 LOGGER.info("Found employees: ");
                 for (Employee tempEmployee : employeeFoundByPartName) {
