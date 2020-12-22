@@ -13,7 +13,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Employee.searchByPartOfName",
-        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE :variable",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT(\'%\',:SHORTNAME, \'%\')",
         resultClass = Employee.class
 )
 
@@ -25,7 +25,7 @@ public class Employee {
     private String lastname;
     private List<Company> companies = new ArrayList<>();
 
-    public Employee(){
+    public Employee() {
     }
 
     public Employee(String firstName, String lastname) {

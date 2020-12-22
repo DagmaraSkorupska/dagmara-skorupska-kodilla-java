@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
     List<Company> searchCompanyWhoFirstThreeCharactersOfName(@Param("NAME") String name);
 
     @Query(nativeQuery = true)
-    List<Company> searchByPartOfName(@Param("variable") String p);
+    List<Company> searchByPartOfName(@Param("SHORTNAME") String shortname);
 }

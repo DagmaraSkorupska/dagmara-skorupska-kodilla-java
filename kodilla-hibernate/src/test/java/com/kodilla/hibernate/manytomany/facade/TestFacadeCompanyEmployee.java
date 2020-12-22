@@ -31,21 +31,18 @@ public class TestFacadeCompanyEmployee {
     private final List<Integer> employeeId = new ArrayList<>();
 
     @After
-    public void cleanUp(){
+    public void cleanUp() {
         companyDao.deleteAll();
         employeeDao.deleteAll();
     }
 
     @Test
-    public void shouldFindByPartOfName(){
+    public void shouldFindCompanyByPartOfName() {
         //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");
 
-        List<String> list = new ArrayList<>();
+        List<Company> list = new ArrayList<>();
 
         companyDao.save(dataMaesters);
         int dataMaestersId = dataMaesters.getId();
@@ -54,6 +51,29 @@ public class TestFacadeCompanyEmployee {
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
         companyId.add(softwareMachineId);
+
+
+        //Where
+        try {
+            list = facadeCompanyEmployee.findCompany("oft");
+        } catch (FacadeProcessingException e) {
+        }
+
+        //Then
+        Assert.assertEquals(1, list.size());
+
+        //CleanUp
+        companyDao.deleteAll();
+        employeeDao.deleteAll();
+    }
+
+    @Test
+    public void shouldFindEmployeeByPartOfName() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+
+        List<Employee> list = new ArrayList<>();
 
         employeeDao.save(johnSmith);
         int johnSmithId = johnSmith.getId();
@@ -65,46 +85,13 @@ public class TestFacadeCompanyEmployee {
 
 
         //Where
-        try{
-            list = facadeCompanyEmployee.findByPartOfName();
-        } catch (FacadeProcessingException e){
+        try {
+            list = facadeCompanyEmployee.findEmployee("lar");
+        } catch (FacadeProcessingException e) {
         }
 
         //Then
-        Assert.assertEquals(2, list.size());
-
-        //CleanUp
-        companyDao.deleteAll();
-        employeeDao.deleteAll();
-    }
-
-    @Test
-    public void shouldntFindByPartOfName(){
-        //Given
-        Employee johnSmith = new Employee("John", "Smith");
-        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
-
-        Company softwareMachine = new Company("Software Machine");
-        Company dataMaesters = new Company("Data Maesters");
-
-        List<String> list = new ArrayList<>();
-
-        companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
-        companyId.add(softwareMachineId);
-
-        employeeDao.save(johnSmith);
-        int johnSmithId = johnSmith.getId();
-        employeeId.add(johnSmithId);
-
-        //Where
-        try{
-            list = facadeCompanyEmployee.findByPartOfName();
-        } catch (FacadeProcessingException e){
-        }
-
-        //Then
-        Assert.assertEquals(0, list.size());
+        Assert.assertEquals(1, list.size());
 
         //CleanUp
         companyDao.deleteAll();

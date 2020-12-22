@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,39 +22,31 @@ public class FacadeCompanyEmployee {
     private static final Logger LOGGER = LoggerFactory.getLogger(FacadeCompanyEmployee.class);
 
 
-    public List<String> findByPartOfName() throws FacadeProcessingException {
-        List<String> foundResults = new ArrayList<>();
+    public List<Company> findCompany(String shortname) throws FacadeProcessingException {
         LOGGER.info("Starting method: search by Part of Name");
-        try {
-            List<Company> companyFoundByPartName = company.searchByPartOfName("%Da%");
-            if (companyFoundByPartName.size() > 0) {
-                LOGGER.info("Found companies: ");
-                for (Company tempCompany : companyFoundByPartName) {
-                    LOGGER.info(tempCompany.getName());
-                    foundResults.add(tempCompany.getName());
-                }
-
-            } else {
-                LOGGER.info("Found none companies");
+        List<Company> companyFoundByPartName = company.searchByPartOfName(shortname);
+        if (companyFoundByPartName.size() > 0) {
+            LOGGER.info("Found companies: ");
+            for (Company tempCompany : companyFoundByPartName) {
+                LOGGER.info(tempCompany.getName());
             }
-
-            List<Employee> employeeFoundByPartName = employee.searchByPartOfName("%Cl%");
-            if (employeeFoundByPartName.size() > 0) {
-                LOGGER.info("Found employees: ");
-                for (Employee tempEmployee : employeeFoundByPartName) {
-                    LOGGER.info(tempEmployee.getLastname());
-                    foundResults.add(tempEmployee.getLastname());
-                }
-            } else {
-                LOGGER.info("Found none employees");
-            }
-
-        } finally {
-            LOGGER.info("Method finished");
+        } else {
+            LOGGER.info("Found none companies");
         }
-        return foundResults;
+        return companyFoundByPartName;
+    }
+
+    public List<Employee> findEmployee(String shortname) throws FacadeProcessingException {
+        LOGGER.info("Starting method: search by Part of Name");
+        List<Employee> employeeFoundByPartName = employee.searchByPartOfName(shortname);
+        if (employeeFoundByPartName.size() > 0) {
+            LOGGER.info("Found employees: ");
+            for (Employee tempEmployee : employeeFoundByPartName) {
+                LOGGER.info(tempEmployee.getLastname());
+            }
+        } else {
+            LOGGER.info("Found none employees");
+        }
+        return employeeFoundByPartName;
     }
 }
-
-
-
